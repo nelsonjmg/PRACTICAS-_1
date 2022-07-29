@@ -1,0 +1,232 @@
+---
+title: "PRACTICA.1"
+author: "Nelson de Jesus Magaña Godinez"
+date: "28/7/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+\begin{center}  INTRODUCCION AL ENTORNO  \end{center}
+• Revisar las demostraciones o demos siguientes: demo(graphics), demo(image), demo(persp)
+y demo(plotmath), demo(intervals), demo(lattice) ( en los últimos dos es necesario cargar
+previamente el paquete lattice)
+
+3. Con objects() o ls() puede listar los objetos creados en el espacio de trabajo o memoria (Workspace),
+al ejecutar los demos anteriores.
+
+Luego puede eliminar o remover los objetos con rm(list=ls()) o remove(list=objects())
+
+Note: que también se pueden listar y remover objetos desde los menús. Seleccione para esto el
+Menú Misc, y dentro de el seleccione listar o remover objetos.
+
+4. Crear en la raíz del disco duro "C:/" o en “Mis Documentos” una carpeta o directorio con su
+nombre para guardar sus prácticas.
+
+5. Ver un listado de las carpetas y archivos contenidos en un directorio utilizando las funciones:
+• dir(), por ejemplo,
+dir("C:/", pattern = "^[a-p]", full.names=TRUE)
+
+```{r}
+dir("C:/", pattern = "^[a-p]", full.names = TRUE)
+```
+
+Note que la instrucción "^[a-p]” le indica a R que liste los archivos que empiezan con letras de la
+“a” hasta la “p”.
+
+• O también list.files(), por ejemplo,
+list.files("C:/", pattern = NULL, all.files = TRUE, full.names = FALSE)
+
+```{r}
+list.files("C:/", pattern = NULL, all.files = TRUE, full.names = FALSE)
+```
+
+Note que con la instrucción anterior se muestran todos los archivos visibles y no visibles (ocultos y
+protegidos por el sistema).
+
+6. R utiliza el directorio de trabajo para leer y escribir archivos. Para saber cual es este directorio puede
+utilizar la función getwd()(*get working directory*). Para cambiar el directorio de trabajo, se utiliza la
+función setwd(); por ejemplo, setwd("C:/Curso R2012").
+
+```{r}
+getwd()
+```
+
+Es necesario proporcionar la ruta (’path’) completa del archivo si este no se encuentra en el
+directorio de trabajo de R, el cual por defecto es "C:/Archivos de programa/R/R-2.13.1".
+
+7. Ejemplos de cálculo numérico en la Consola de R (R-Console)
+
+**Ejemplo 1.** Encontrar el resultado de operar: 2 más 10 por 3 entre 5
+Escriba en la Consola de R: 2+10*3/5 y oprima la tecla ENTER
+
+```{r}
+2+10*3/5
+```
+
+Note que en R se respecta el mismo orden de preferencia de la mayoría de los lenguajes de
+programación, la multiplicación y la división tienen prioridad a la suma y resta.
+
+__Ejemplo 2.__ Encontrar el resultado de operar: 3 elevado a la potencia 100
+3^100 o también format(3^100, sci = FALSE)
+Sci=FALSE le indica a R que muestre todos los dígitos del resultado, de lo contrario (Sci=TRUE)
+solamente se mostrará la representación científica.
+
+```{r}
+3^100 #El resultado lo muestra en notacion cientifica.
+```
+
+```{r}
+format(3^100, scientific = FALSE)
+```
+
+```{r}
+format(3^100, scientific = TRUE)
+```
+
+**Ejemplo 3.** Encontrar el resultado anterior con 15 cifras decimales y guardarlo en la variable y
+y <- format(3^100, digits = 15);y o y = format(3^100, digits = 15)
+
+```{r}
+y<-format(3^100, digits = 15); 
+y
+```
+
+```{r}
+y=format(3^100, digits = 15); 
+y
+```
+
+Note que en R, la asignación de valores a una variable puede hacerse con “= “ o con “<-“.
+
+__Ejemplo 4__. Redondear el valor de $\pi$ a 4 digitos decimales
+round(pi, 4)
+Aplique las funciones: trunc(pi), floor(pi) y ceiling(pi)
+
+```{r}
+round(pi, 4)
+trunc(pi)
+floor(pi)
+ceiling(pi)
+```
+
+**Ejemplo 5.** Guardar en la variable *n* el valor 150 y luego calcular el valor de n
+n = 150
+factorial(n)
+
+```{r}
+n<-50
+n
+factorial(n)
+```
+
+__Ejemplo 6.__ Operar el complejo (2+3i) elevado a la potencia 10
+(2+3i)^10 o también format((2+3i)^10, sci = TRUE)
+
+```{r}
+(2+3i)^10
+format((2+3i)^10, scientific = TRUE)
+```
+
+**Ejemplo 7.** Calcular la integral entre 0 y $\pi$ de la función $Sen(x)$
+```{r}
+f=function(x) {sin(x)}
+integrate(f, lower = 0, upper = pi)
+```
+# TRABAJANDO CON SCRIPT
+
+A medida que estemos realizando un trabajo de pequeña, mediana o de gran complejidad, será muy
+útil manejar todas las entradas que solicitemos a R en un entorno donde podamos corregirlas,
+retocarlas, repetirlas, guardarlas para continuar el trabajo en otro momento, con otros datos, etc. Esta
+es la función del editor de R, a los archivos creados en este editor se les conoce como Script. Es posible
+incluir comentarios que R no leerá si utilizamos líneas que comiencen con el carácter # (o en cualquier
+parte de la línea). Por el contrario, si escribimos cualquier orden no antecedida de # R (sin importar en
+que parte se encuentre) lo reconocerá como instrucciones que deben ejecutarse.
+
+1. Crear un script o guión.
+
+2. Realizar en el script los siguientes cálculos numéricos.
+
+```{r}
+2*(3+4)^2 
+sqrt(16) #rais cuadrada de 16
+abs(-97.6) #abs(x) calcula el valor absoluto de x
+```
+
+```{r}
+x = 4 # almacena el valor de 4 en la variable x
+x # Muestra el contenido de la variable x
+sqrt(x)-3/2
+```
+
+```{r}
+p<-(4>8)
+p
+```
+
+```{r}
+q <- -6+4<3 && 4!=10
+q
+```
+
+```{r}
+r = -6+4>3 || 4==10
+r
+```
+
+```{r}
+t<- !r
+t
+```
+
+```{r}
+sin(pi/2)
+(y=cos(pi)) # Los primeros parentesis permiten ver el calculo de la variable y sin necesidad de llamarla a mostrar en pantalla
+```
+
+Calcula el Logaritmo natural de 3
+```{r}
+log(3) 
+```
+
+Calcula el logaritmo base 10 de 8
+```{r}
+log10(8) 
+```
+
+La sintaxis general es: $logb(x,base)$
+```{r}
+logb(16, 7)
+```
+
+$exp(x)$ Calcula la funcion exponencial $e^x$ 
+```{r}
+exp(1)
+```
+
+Después de digitar el script, marque con el ratón las líneas 5, 6 y 7, ejecútelas oprimiendo el botón
+derecho del ratón, y luego eligiendo la opción "Correr línea o seleccionar". También puede ejecutar
+una línea posicionando el cursor sobre cualquier lugar de ella y oprimiendo simultáneamente las
+teclas Ctrl y R.
+
+3. Ejecute todas las líneas o instrucciones del script.
+
+4. Guarde el script en su directorio de trabajo, puede llamarle Script-Practica01, el programa le da
+automáticamente la extensión .R
+
+Nota: para guardar el script hay que tener la ventana activa y el Menú: Archivo--->Guardar
+
+5. Salga del programa R, ejecutando la función q() o desde Menú: Archivo--->Salir
+```{r}
+#q()
+```
+
+6. Entre nuevamente al R, recupere el archivo donde guardo el script, como se muestra en la figura, y
+ejecute algunas instrucciones.
+
+NOTA: Si se escribe el nombre de la función sin los paréntesis, R mostrará el código de algunas
+funciones. Por ejemplo, ls
+
