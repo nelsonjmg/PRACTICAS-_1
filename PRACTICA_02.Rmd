@@ -3,8 +3,9 @@ title: "PRACTICA_02"
 author: "Nelson de Jesus Magaña Godinez"
 date: "30/7/2022"
 output: pdf_document
+toc: yes
 ---
-
+\newpage
 \begin{center}  1. CREACIÓN Y MANEJO DE VECTORES DE DATOS. \end{center}
 
 Este tipo de objetos se denominan estructuras atómicas ya que todos sus elementos son del mismo
@@ -19,7 +20,8 @@ __FORMA 1 - Crear un vector numérico vacío y añadirle luego sus elementos.__
 ```{r}
 v = numeric(3); 
 v
-# el vector tiene longitud 3 y sus componentes serán NA (Not Available/"Missing" Values) que es la forma como R maneja los datos omitidos o faltantes.
+# el vector tiene longitud 3 y sus componentes serán NA (Not Available/"Missing" Values) 
+# que es la forma como R maneja los datos omitidos o faltantes.
 ```
 
 *- Ejemplo 2:*
@@ -41,7 +43,8 @@ length(x) # Tamaño del vector
 
 *- Ejemplo 2:* Modifique el vector agregándole el valor 9 en la posición 3.
 ```{r}
-#x <- edit(x) #Este comando muestra una ventana para agregar el valor en la posicion en donde se requiera
+#x <- edit(x) #Este comando muestra una ventana para agregar el valor
+# en la posicion en donde se requiera
 x
 ```
 
@@ -88,8 +91,10 @@ s1
 
 *- Ejemplo 2:* 
 ```{r}
-s2 <- seq(from=-1, to=5);
-s2 #Crea un vector cuyo elemento inicial es -1 y su elemento final es 5, y cada dos elementos consecutivos del vector tienen una diferencia de una unidad.
+s2 <- seq(from=-1, to=5); #Crea un vector cuyo elemento inicial es -1 y su elemento final es 5, y 
+# cada dos elementos consecutivos del vector tienen una diferencia de una
+# unidad.
+s2 
 ```
 
 *- Ejemplo 3:* 
@@ -101,7 +106,8 @@ s3
 *- Ejemplo 4:* Secuencia con incremento o decremento:
 
 ```{r}
-s4 <-seq(from=-3, to=3, by=0.2); # crea una secuencia que inicia en -3 y termina en 3 con incrementos de 0.2 en 0.2.
+s4 <-seq(from=-3, to=3, by=0.2); # crea una secuencia que inicia en -3 y termina en 3 
+# con incrementos de 0.2 en 0.2.
 s4
 ```
 
@@ -203,7 +209,8 @@ deptos
 *- Ejemplo 1:*
 ```{r}
 codDeptos <- c(11, 12, 13, 14)
-names(codDeptos) <- c("Usulutan", "San Miguel", "Morazan", "La Union"); # Asigna el codigo correscpondiente a cada caso.
+names(codDeptos) <- c("Usulutan", "San Miguel", "Morazan", "La Union"); # Asigna el codigo 
+# correscpondiente a cada caso.
 codDeptos
 Oriente <- codDeptos[c("La Union", "San Miguel")]; #Muestra el codigo de los casos solicitados.
 Oriente
@@ -213,7 +220,9 @@ Oriente
 ```{r}
 etiqs <- paste(c("X", "Y"), 1:10, sep = "");
 etiqs
-# Crea un vector de caracteres resultado de la unión de “X” o de “Y” con uno de los número comprendidos entre 1 y 10, sep=”” indica que no se deja espaciado en la unión.
+# Crea un vector de caracteres resultado de la unión de “X” o de “Y”
+# con uno de los número comprendidos entre 1 y 10, sep=”” 
+# indica que no se deja espaciado en la unión.
 ```
 
 \begin{center} 2. CREACION Y MANEJO DE MATRICES \end{center}
@@ -232,7 +241,8 @@ M
 ```{r}
 M[2,3] <- 6;
 M
-#similar a la de un vector pero considerando que deben utilizarse dos índices para indicar fila y columna.
+#similar a la de un vector pero considerando que deben 
+# utilizarse dos índices para indicar fila y columna.
 ```
 
 **FORMA 2 - Crear una matriz numérica asignándole todos sus elementos o valores.**
