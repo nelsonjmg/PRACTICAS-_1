@@ -3,11 +3,13 @@ title: "PRACTICA_04"
 author: "Nelson de Jesus Magaña Godinez"
 date: "3/8/2022"
 output: pdf_document
+toc: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+\newpage
 
 Generalmente los datos suelen leerse desde archivos externos y no teclearse desde la consola. Las capacidades de lectura de archivos de R son sencillas y sus requisitos son bastante estrictos, por lo que hay que tenerlas muy en cuenta, de lo contrario los resultados en la lectura no serán los esperados.
 
@@ -53,8 +55,11 @@ NOTA: La función read.table() lee los datos y los almacena en una hoja de datos
 
 6º) Leer los datos contenidos en el archivo “mexico.dad”
 ```{r}
-#Mexico <- read.table("mexico.dat");Mexico
-# Note que la instrucción header=T es por defecto y puede omitirla (R reconocerá siempre que en la primera línea se encuentran los nombres de las variables).
+Mexico <- read.table("mexico.dat");
+#Mexico
+# Note que la instrucción header=T es por defecto y puede omitirla
+#(R reconocerá siempre que en la primera línea se encuentran los
+# nombres de las variables).
 ```
 
 La sintaxis completa de la función read.table() es
@@ -95,7 +100,8 @@ Edat4
 
 *- Ejemplo 2:* Crear un archivo con la función cat() y luego recuperarlo
 ```{r}
-cat("TITULO Linea extra", "2,3,5,7", "11,13,17", file = "datos02.txt", sep = "\n")
+datos02.txt <- cat("TITULO Linea extra", "2,3,5,7", "11,13,17", file = "datos02.txt", sep = "\n")
+datos02.txt
 ```
 
 El archivo lo recuperamos con la función scan():
@@ -178,7 +184,11 @@ library(RODBC)
 
 - Seleccionar la hoja en la cual se encuentran los datos
 ```{r}
-#datoshoja1.xls <- sqlFetch(datos.xls,"contaminacion_mexico")
+#datoshoja1.xls <- sqlFetch(contaminacion_mexico,"contaminacion_mexico")
+library(readxl)
+contaminacion_mexico <- read_excel("C:/Users/pc 1/Desktop/PAQUETE R/PRACTICAS-_1/contaminacion_mexico.xls", 
+    sheet = "contaminacion_mexico")
+#View(contaminacion_mexico)
 # Con esta instrucción se indica la hoja en la cual se encuentran los datos con los que se
 ```
 
@@ -204,13 +214,15 @@ Puede consultar más ayuda de la función con la instrucción help(read.spss).
  
 - Cargar el paquete con la siguiente instrucción:
 ```{r}
-#library(foreign)
+library(foreign)
 ```
 
 
 - Leer el contenido del archivo “demo.sav”, con la instrucción:
 ```{r}
-# read.spss(“demo.sav”, use.value.labels=TRUE, max.value.label=Inf, to.data.frame=T)
+library(haven)
+demo <-read_sav("demo.sav")
+demo
 ```
 
 - Realizar los análisis o cálculos correspondientes.
